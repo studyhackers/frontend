@@ -1,0 +1,65 @@
+[기본 동작]
+
+(function() {
+    function sum(a, b) {    // 독립적인 스코프
+        return a+b;
+    }
+})()
+한 다음
+
+sum = 1 할당 시켜주고나서
+sum(1, 2)하면 타입 에러 발생. 그래서 IIFE방식의 모듈을 사용함(정의하자마자 실행되는 함수)
+함수 안에 정의해두면 독립적인 스코프가 생김.
+안에서 정의하면 함수 외부에서는 사용할 수 없음.
+
+________________
+
+[엔트리/아웃풋]
+
+npm install -D webpack webpack-cli 설치시
+-D 개발용으로 설치를 해서 "devDependencies": <= dev가 붙음
+node_modules/.bin 에 가면 webpack, webpack-cli 볼 수 있음
+
+필수옵션)
+--mode : "development"(개발용), "production"(배포.최적화) , "none"
+--entry : 모듈의 시작점. 웹팩의 모든 모듈화를 합침 ex)https://webpack.kr/에서 .js
+--output : 저장하는 경로를 설정하는 옵션
+
+node_modules/.bin/webpack --mode development --entry ./src/app.js --output dist/main.js
+말고
+node_modules/.bin/webpack --mode development --entry ./src/app.js --output-path dist/
+로 main.js 결과물 파일 생성
+
+터미널 실행시 보안 오류: (:) [], PSSecurityException 뜨는데
+powerShell 관리자권한으로 실행하고 Set-ExecutionPolicy Unrestricted 입력
+
+package.json에서 "build": "webpack" 할 경우
+기본 설정인 webpack.config.js를 불러옴
+
+
+- branch 이동 방법
+1. 터미널에 git checkout 1-webpack/1-entry
+2. 왼쪽 밑 브랜치 아이콘 클릭
+
+
+- 웹팩 빌드 방법
+1. npm init -y 으로 package.json 생성
+2. package.json에서 "build": "webpack" 으로 수정
+3. webpack.config.js 새 파일 생성
+4. npm install webpack webpack-cli 로 설치
+5. node_modules/.bin/webpack --mode development --entry ./src/app.js --output-path dist/ 로 main.js 결과물 파일 생성
+6. npm run build
+7. index에 ./dist/main.js 스크립트 연결
+8. [Alt+L] [Alt+O]로 라이브서버 열어서 확인
+
+________________
+
+[로더]
+
+css, 이미지 등등 import를 사용해서 자바스크립트에 부를 수 있음
+
+my-webpack-loaders.js - myWebpackLoader 로더는 함수형태로 작성
+webpack.config.js에 rules - test: /\.js$/, use: [path.resolve('./my-webpack-loaders.js')]지정해주고
+npm run build 실행시 "myWebpackLoader가 동작함" 뜸 (두 번 뜨는 이유- 모든 js 파일 실행돼서 app.js, math.js)
+변형하여 출력 가능(alert창 바꾸는거 안됨......... replaceAll로 해도)
+
