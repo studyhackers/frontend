@@ -16,7 +16,7 @@
   \********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _math_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./math.js */ \"./src/math.js\");\n// ES2015 표준 모듈 시스템(export-import)\r\n // sum만 가져올거면 import {sum} from '/ayoung/math.js'\r\n\r\nalert(_math_js__WEBPACK_IMPORTED_MODULE_0__.sum(1, 2)); // sum함수는 전역에 없기때문에 전역스코프에 있는 math.sum으로 변경 \n\n//# sourceURL=webpack://ayoung/./src/app.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _math_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./math.js */ \"./src/math.js\");\n// ES2015 표준 모듈 시스템(export-import)\r\n // sum만 가져올거면 import {sum} from '/ayoung/math.js'\r\n\r\nconsole.log(_math_js__WEBPACK_IMPORTED_MODULE_0__.sum(1, 2)); // sum함수는 전역에 없기때문에 전역스코프에 있는 math.sum으로 변경 \n\n//# sourceURL=webpack://ayoung/./src/app.js?");
 
 /***/ }),
 
