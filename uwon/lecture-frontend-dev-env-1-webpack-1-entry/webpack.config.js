@@ -8,5 +8,6 @@ module.exports = {
     output: {
         path: path.resolve('./dist'),
         filename: '[name].js'
-    }
+    },
+    
 }
