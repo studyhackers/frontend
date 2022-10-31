@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack"
+    "start": "webpack-dev-server --progress",
+    "build": "NODE_ENV=production webpack --progress",
+    "lint": "eslint src --fix"
   },
   "author": "",
   "license": "ISC",
@@ -21,7 +23,9 @@
     "html-webpack-plugin": "^5.5.0",
     "mini-css-extract-plugin": "^2.6.1",
     "style-loader": "^3.3.1",
-    "url-loader": "^4.1.1"
+    "url-loader": "^4.1.1",
+    "webpack-dev-server": "^4.11.1",
+    "axios": "^0.19.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.19.3",
